@@ -8,8 +8,21 @@ Capacitorjs plugin to use the bluetooth adapter of an android device. simply and
 npm install bluetooth-simple-android-plugin
 npx cap sync
 ```
+Para utilizar este plugin se necesita activar los siguientes permisos en el archivo manifest / To use this plugin you need to activate the following permissions in the manifest
 
+```xml
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+```
 ## API
+Simplemente importe la clase. Luego puede utilizar sus metodos estáricos directamente. Simply import the class. Afther, you can use its static methods directly. 
+
+```typescript
+    import { BluetoothSimple } from 'bluetooth-simple-android-plugin';
+```
 
 <docgen-index>
 
