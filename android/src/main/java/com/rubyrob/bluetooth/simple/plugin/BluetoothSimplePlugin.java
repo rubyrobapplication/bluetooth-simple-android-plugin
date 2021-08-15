@@ -2,6 +2,7 @@ package com.rubyrob.bluetooth.simple.plugin;
 
 import android.Manifest;
 import android.app.Activity;
+import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -76,15 +77,17 @@ public class BluetoothSimplePlugin extends Plugin {
         BroadcastReceiver receiver = new BroadcastReceiver() {
             public void onReceive(Context context, Intent intent) {
                 String action = intent.getAction();
+                JSObject ret = new JSObject();
                 if (BluetoothDevice.ACTION_FOUND.equals(action)) {
                     BluetoothDevice device = intent.getParcelableExtra(BluetoothDevice.EXTRA_DEVICE);
                     String deviceName = device.getName();
                     String deviceHardwareAddress = device.getAddress(); // MAC address
-                    JSObject ret = new JSObject();
                     ret.put("deviceName", deviceName);
                     ret.put("deviceHardwareAddress", deviceHardwareAddress);
-                    call.resolve(ret);
+                }else if(BluetoothAdapter.ACTION_DISCOVERY_FINISHED.equals(action)){
+                    ret.put("stateAction", "DISCOVERY_FINISHED");
                 }
+                call.resolve(ret);
             }
         };
         implementation.startDiscovery(receiver, this);
