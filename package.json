@@ -1,6 +1,6 @@
 {
   "name": "bluetooth-simple-android-plugin",
-  "version": "0.0.12",
+  "version": "0.0.13",
   "description": "Capacitorjs plugin to use the bluetooth adapter of an android device. simply and direct / Complemento Capacitorjs para usar el adaptador bluetooth de un dispositivo Android. simple y directo",
   "main": "dist/plugin.cjs.js",
   "module": "dist/esm/index.js",

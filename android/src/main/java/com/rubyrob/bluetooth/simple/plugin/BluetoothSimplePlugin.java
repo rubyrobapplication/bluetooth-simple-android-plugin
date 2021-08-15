@@ -81,9 +81,9 @@ public class BluetoothSimplePlugin extends Plugin {
                 if (BluetoothDevice.ACTION_FOUND.equals(action)) {
                     BluetoothDevice device = intent.getParcelableExtra(BluetoothDevice.EXTRA_DEVICE);
                     String deviceName = device.getName();
-                    String deviceHardwareAddress = device.getAddress(); // MAC address
-                    ret.put("deviceName", deviceName);
-                    ret.put("deviceHardwareAddress", deviceHardwareAddress);
+                    String deviceHardwareAddress = device.getAddress(); 
+                    ret.put("name", deviceName);
+                    ret.put("address", deviceHardwareAddress);
                 }else if(BluetoothAdapter.ACTION_DISCOVERY_FINISHED.equals(action)){
                     ret.put("stateAction", "DISCOVERY_FINISHED");
                 }
